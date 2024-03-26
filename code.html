@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鸟游园-你的部分</title>
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            background-image: url('BG2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #son {
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        transform: translateX(-50%) translateY(-50%);
+}
+.box{
+  width: 400px;
+  height: 40px;
+  display: inline-block;
+  text-align: justify;
+  padding-top: 5px;
+  transition:0.5s;
+  background-color: whitesmoke; 
+  font-size: 2rem;
+}
+.box:hover
+{
+transform: scale(1.5);
+}
+.bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+        }
+
+</style>
+</head>
+
+<body style="background-color:whitesmoke">
+    
+    <div id="father"><h1>你好哦！这里也许有准备给你的东西</h1></div>
+    <div id="father"><h2>总之请先对个暗号试试看！</h2></div>
+    <div id="father"><h3>暗号的话...我应该已经跟你说过是什么了吧？^^</h3></div>
+    <div id="father"><h4 class="italic">输入后记得按下回车键确认！</h4></div>
+    <div id="son"><input id="password" class="box" onclick="checkPassword()"><br>
+    </div>
+    <script>
+    function checkPassword(){
+        document.onkeydown = function(e){
+            if((e||event).keyCode==13&&document.getElementById("password").value=="040816")
+            document.location.href='gift.html';
+            else if((e||event).keyCode==13&&document.getElementById("password").value!="040816")
+                alert("欸欸！是密码输错了吗？或者，目前还没轮到给你做的部分？请稍等！");  
+        };
+    }
+    </script>
+</body>
+</html>

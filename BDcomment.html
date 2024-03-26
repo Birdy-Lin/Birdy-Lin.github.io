@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>留言板</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .title {
+            /* 设置标题大小为2rem */
+            font-size: 2rem;
+            /* 设置标题居中 */
+            text-align: center;
+            border: 2px solid #333;
+            padding: 5px
+        }
+        .paragraph {
+            /* 设置段落大小为1.5rem */
+            font-size: 1.5rem;
+            /* 设置段落居中 */
+            text-align: center;
+            border: 2px solid #333;
+            padding: 5px
+        }
+
+        #messages {
+            margin-top: 20px;
+        }
+        .message {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        .message .name {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>2024.8.15的林鸟生日留言板</h1>
+    <p>在这里留下你想说的话吧!</p>
+    <p>随便说点什么都可以哦。。这是我的小小的生日请求！</p>
+    <form id="message-form">
+        <label for="name">署名:</label>
+        <input type="text" id="name" required>
+        <label for="message">评论:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">提交评论</button>
+    </form>
+    <div id="messages"></div>
+
+    <script>
+        document.getElementById('message-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+
+            const messages = document.getElementById('messages');
+            const newMessage = document.createElement('div');
+            newMessage.classList.add('message');
+            newMessage.innerHTML = `
+                <p class="name">${name}</p>
+                <p>${message}</p>
+            `;
+            messages.appendChild(newMessage);
+
+            document.getElementById('name').value = '';
+            document.getElementById('message').value = '';
+        });
+    </script>
+</body>
+</html>
